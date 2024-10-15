@@ -79,6 +79,7 @@ const init = async () => {
         } else {
             outputSheet = outputWorkbook.addWorksheet();
         }
+        outputSheet.properties.defaultColWidth = 50;
 
         outputSheet.columns = [
             { header: "Domain Name", key: "domainName" },
@@ -108,7 +109,7 @@ const init = async () => {
                 deviceType: row.deviceType,
                 deviceSubType: row.deviceSubType,
                 lastSeen: row.lastSeen,
-                mergedDate: new Date(),
+                mergedDate: new Date().toISOString(),
                 mergedFiles: "Device: "+deviceFiles[0]+" Tenant: "+tenantFiles[0]
             };
             outputSheet.addRow(filteredRow);
