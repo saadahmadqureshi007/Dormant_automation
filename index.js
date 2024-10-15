@@ -90,7 +90,9 @@ const init = async () => {
             { header: "Plan Name", key: "planName" },
             { header: "Device Type", key: "deviceType" },
             { header: "Device SubType", key: "deviceSubType" },
-            { header: "Last Seen", key: "lastSeen" }
+            { header: "Last Seen", key: "lastSeen" },
+            { header: "Merged Date", key: "mergedDate" },
+            { header: "Merged Files", key: "mergedFiles" }
         ];
 
         // Map the outputData to exclude the unwanted columns
@@ -105,7 +107,9 @@ const init = async () => {
                 planName: row.planName,
                 deviceType: row.deviceType,
                 deviceSubType: row.deviceSubType,
-                lastSeen: row.lastSeen
+                lastSeen: row.lastSeen,
+                mergedDate: new Date(),
+                mergedFiles: "Device: "+deviceFiles[0]+" Tenant: "+tenantFiles[0]
             };
             outputSheet.addRow(filteredRow);
         });
